@@ -1,0 +1,11 @@
+body{
+    background-color:red;
+}
+
+ul li {
+    display: inline;
+}
+
+a {
+    color: blue;
+}

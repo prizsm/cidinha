@@ -1,0 +1,56 @@
+sudo service postgresql start
+psql -h ec2-54-221-226-148.compute-1.amazonaws.com -p 5432 -U ixrgpegxdbuhlb -W dc92svd8320e58
+
+SENHA
+lvEN2G2U0KvfPq9aSRf1AT59KF
+
+
+https://www.heroku.com/postgres
+
+{-*
+
+formCard :: Form CartaoCredito
+formCard = renderDivs $ CartaoCredito 
+    <$> areq textField "Número do cartão" Nothing
+    <*> areq textField "Nome" Nothing
+    <*> areq textField "Valido até (Mês)" Nothing
+    <*> areq textField "Valido até (Ano)" Nothing
+    <*> areq textField "Código de validade" Nothing
+    <*> areq hiddenField "" Nothing
+
+getPagarmeR :: Handler Html
+getPagarmeR = do
+         (widget, enctype) <- generateFormPost formCard
+         defaultLayout $ do 
+         
+postPagarmeR :: Handler Html
+postPagarmeR = do
+    ((result, _), _) <- runFormPost formCard
+    case result of
+        FormSuccess (CartaoCredito _ _ _ _ _ x) -> do 
+            txt <- liftIO (splitTest 1000 "" x 90 x 10)
+            defaultLayout [whamlet| #{txt} |]
+        _ -> redirect ErroR 
+*-}
+{-*
+postProdutoR :: Handler ()
+postProdutoR = do
+    addHeader "Access-Control-Allow-Origin" "*"
+    prod <- requireJsonBody :: Handler Produtok
+    pid <- runDB $ insert prod
+    sendResponse (object [pack "resp" .= pack ("CREATED " ++ show pid)])
+
+getHomeR :: Handler Html
+getHomeR = defaultLayout $ do
+    [whamlet|
+        <h1> Olá mundo
+    |]
+    
+getListaR :: Handler Html
+getListaR = do
+    addHeader "Access-Control-Allow-Origin" "*"
+    prods <- runDB $ selectList [] [Asc ProdutokNome]
+    sendResponse (object [pack "resp" .= toJSON prods])
+ -*}
+ 
+ update :: PersistEntity val => Key val -> [Update val] -> m ()

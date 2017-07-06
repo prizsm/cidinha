@@ -1,0 +1,17 @@
+<table>
+    <tr> 
+        <td> id  
+        <td> nome 
+        <td> rg 
+        <td> idade 
+        <td>
+    $forall Entity alid aluno <- alunos
+        <tr>
+            <form action=@{DelAlunoR alid} method=post> 
+                <td> #{fromSqlKey  alid}  
+                <td> #{alunoNome  aluno} 
+                <td> #{alunoRg    aluno} 
+                <td> #{alunoIdade aluno}
+                <td> <input type="submit">
+
+^{footerzinho}

@@ -1,0 +1,12 @@
+/                                 HomeR     GET
+/aluno/cadastro                   AlunoR    GET POST
+/aluno/listagem                   ListAluR  GET
+/aluno/apagar/#AlunoId            DelAlunoR POST         
+/disciplina/cadastro              DiscR     GET POST
+/disciplina/listagem              ListDiscR GET
+/disciplina/apagar/#DisciplinaId  DelDiscR  POST
+/usuario/cadastro                 UsuarioR  GET POST
+/usuario/login                    LoginR    GET POST
+/perfil                           PerfilR   GET
+/logout                           LogoutR   POST
+/static                           StaticR   Static getStatic
